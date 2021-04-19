@@ -2,3 +2,6 @@ ssp.pem
 node_modules
 .env
 .next
+cc_ssp-development.sh
+start-development.sh
+docker-compose-development.yml
