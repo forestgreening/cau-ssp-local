@@ -1,0 +1,9 @@
+{
+	"network-configs": {
+		"net_basic": {
+			"name": "net_basic",
+			"profile": "./connection-profile/test-network.json"
+		}
+	},
+	"license": "Apache-2.0"
+}

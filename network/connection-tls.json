@@ -1,0 +1,58 @@
+{
+  "name": "basic-network",
+  "version": "1.0.0",
+  "client": {
+    "organization": "Org1",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "300"
+        },
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "ssp": {
+      "orderers": ["orderer.centralGoverment.com"],
+      "peers": {
+        "peer0.org1.localGoverment.com": {}
+      }
+    }
+  },
+  "organizations": {
+    "Org1": {
+      "mspid": "Org1MSP",
+      "peers": ["peer0.org1.localGoverment.com"],
+      "certificateAuthorities": ["ca.admin.com"]
+    }
+  },
+  "orderers": {
+    "orderer.centralGoverment.com": {
+      "url": "grpc://localhost:7050",
+      "gprcOptions": {
+        "ssl-target-name-override": "orderer.centralGoverment.com"
+    },
+      "tlsCAcerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICaDCCAg6gAwIBAgIRAJ1LjXECAT3DJ3jK+ibSzeUwCgYIKoZIzj0EAwIwfjEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xHTAbBgNVBAoTFGNlbnRyYWxHb3Zlcm1lbnQuY29tMSMwIQYDVQQD\nExp0bHNjYS5jZW50cmFsR292ZXJtZW50LmNvbTAeFw0yMTAzMDgwNDM4MDBaFw0z\nMTAzMDYwNDM4MDBaMH4xCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh\nMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMR0wGwYDVQQKExRjZW50cmFsR292ZXJt\nZW50LmNvbTEjMCEGA1UEAxMadGxzY2EuY2VudHJhbEdvdmVybWVudC5jb20wWTAT\nBgcqhkjOPQIBBggqhkjOPQMBBwNCAATo9BWwYCFOWXdDbhBMDWcHSOiR4mHZgyi4\nJdBseRL90JFBxm3owGeFmXZEtHzqsZk2DWegRiD2hAO5KrHlLGTHo20wazAOBgNV\nHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1Ud\nEwEB/wQFMAMBAf8wKQYDVR0OBCIEIHzXqjdXiH9bSUpCGib9q9Ow1GkxhU2GuDAL\nv8nE5hajMAoGCCqGSM49BAMCA0gAMEUCIQCvsVrVfCwW0ds1HXl6l2W3uhDnvT7b\nMZGizaOH3yRzDAIgHqqeO8Q6FFgaE2FNoGsDxDTfAfElfX5luE2WvyVDECg=\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "peers": {
+    "peer0.org1.localGoverment.com": {
+      "url": "grpc://localhost:7051",
+      "gprcOptions": {
+        "ssl-target-name-override": "peer0.org1.localGoverment.com"
+    },
+      "tlsCAcerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICdDCCAhugAwIBAgIQTtwdDGIg6GeK5sgOB4v7gTAKBggqhkjOPQQDAjCBhDEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xIDAeBgNVBAoTF29yZzEubG9jYWxHb3Zlcm1lbnQuY29tMSYwJAYD\nVQQDEx10bHNjYS5vcmcxLmxvY2FsR292ZXJtZW50LmNvbTAeFw0yMTAzMDgwNDM4\nMDBaFw0zMTAzMDYwNDM4MDBaMIGEMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2Fs\naWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEgMB4GA1UEChMXb3JnMS5s\nb2NhbEdvdmVybWVudC5jb20xJjAkBgNVBAMTHXRsc2NhLm9yZzEubG9jYWxHb3Zl\ncm1lbnQuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDED+W7eBYE+tg1iH\niGy/n+btJMM0yqMm3j3t9xfksVaj3L1oVENbD9FvROXgZ/aX5kpWzp+o6hBOrwh9\nTI6lB6NtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggr\nBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCAh1mPfbgifzqmsXux9\nMBORkyAvBv3Naxz2BJh4iDxQezAKBggqhkjOPQQDAgNHADBEAiBz16CVykDXdyGW\n0vMdA1OmncsiRQs8Dz1/fGugOvuVaQIgMhU2Hesa4Y0/ToZrg2nta0pel+HK3CRp\nAsoZUizHblA=\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca.admin.com": {
+      "url": "https://localhost:7054",
+      "caName": "ca.admin.com"
+    }
+  }
+}
