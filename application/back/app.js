@@ -5,12 +5,12 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const dotenv = require('dotenv');
 
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 const userRouter = require('./routes/user');
 const materialRouter = require('./routes/material');
 const photoRouter = require('./routes/photo');
 const db = require('./models');
 const passportConfig = require('./passport');
-const { createProxyMiddleware } = require('http-proxy-middleware');
 
 dotenv.config();
 
@@ -31,37 +31,6 @@ app.use(cors({
 
 // app.use(cors());
 
-module.exports = function (app) {
-  app.use(
-    '/user',
-    createProxyMiddleware({
-      target: 'http://localhost:3065',
-      changeOrigin: true,
-    })
-  );
-};
-
-module.exports = function (app) {
-  app.use(
-    '/photo',
-    createProxyMiddleware({
-      target: 'http://localhost:3065',
-      changeOrigin: true,
-    })
-  );
-};
-
-module.exports = function (app) {
-  app.use(
-    '/material',
-    createProxyMiddleware({
-      target: 'http://localhost:3065',
-      changeOrigin: true,
-    })
-  );
-};
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SECRET));
@@ -77,6 +46,6 @@ app.use('/user', userRouter);
 app.use('/material', materialRouter);
 app.use('/photo', photoRouter);
 
-app.listen(3065, () => {
+app.listen(80, () => {
   console.log('서버 실행 중');
 });
