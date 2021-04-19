@@ -44,39 +44,6 @@ Organizations:
             - Host: peer0.org1.localGoverment.com
               Port: 7051
 
-    - &Org2
-        # DefaultOrg defines the organization which is used in the sampleconfig
-        # of the fabric.git development environment
-        Name: Org2MSP
-
-        # ID to load the MSP definition as
-        ID: Org2MSP
-
-        MSPDir: crypto-config/peerOrganizations/org2.rentalCompany.com/msp
-
-        AnchorPeers:
-            # AnchorPeers defines the location of peers which can be used
-            # for cross org gossip communication.  Note, this value is only
-            # encoded in the genesis block in the Application section context
-            - Host: peer0.org2.rentalCompany.com
-              Port: 7051
-
-    - &Org3
-        # DefaultOrg defines the organization which is used in the sampleconfig
-        # of the fabric.git development environment
-        Name: Org3MSP
-
-        # ID to load the MSP definition as
-        ID: Org3MSP
-
-        MSPDir: crypto-config/peerOrganizations/org3.constructionCompany.com/msp
-
-        AnchorPeers:
-            # AnchorPeers defines the location of peers which can be used
-            # for cross org gossip communication.  Note, this value is only
-            # encoded in the genesis block in the Application section context
-            - Host: peer0.org3.constructionCompany.com
-              Port: 7051
 
 ################################################################################
 #
@@ -156,8 +123,6 @@ Profiles:
             SampleConsortium:
                 Organizations:
                     - *Org1
-                    - *Org2
-                    - *Org3
 
     ThreeOrgChannel:
         Consortium: SampleConsortium
@@ -165,6 +130,3 @@ Profiles:
             <<: *ApplicationDefaults
             Organizations:
                 - *Org1
-                - *Org2
-                - *Org3
-
