@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app",
-    "start": "node app"
+    "start": "cross-env NODE_ENV=production pm2 start app"
   },
   "author": "forestgreening",
   "license": "MIT",
@@ -20,7 +20,10 @@
     "fabric-ca-client": "^1.4.7",
     "fabric-client": "^1.4.7",
     "fabric-network": "^1.4.7",
+    "helmet": "^4.5.0",
+    "hpp": "^0.2.3",
     "http-proxy-middleware": "^1.1.2",
+    "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

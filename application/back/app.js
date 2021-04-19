@@ -2,8 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
 const passport = require('passport');
 const dotenv = require('dotenv');
+const hpp = require('hpp');
+const helmet = require('helmet');
 
 // const { createProxyMiddleware } = require('http-proxy-middleware');
 const userRouter = require('./routes/user');
@@ -23,6 +26,14 @@ db.sequelize.sync({ force: false })
   .catch(console.error);
 
 passportConfig();
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(morgan('combined'));
+  app.use(hpp());
+  app.use(helmet());
+} else {
+  app.use(morgan('dev'));
+}
 
 app.use(cors({
   origin: ['http://localhost:3000', 'http://192.168.0.5:3000', 'https://394e2af4d0dd.jp.ngrok.io', '1.231.209.103', '192.168.0.0'],
