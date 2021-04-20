@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://192.168.0.5:3000', 'https://394e2af4d0dd.jp.ngrok.io', '1.231.209.103', '192.168.0.0'],
+  origin: ['http://localhost:3000', 'http://54.180.113.2'],
   credentials: true,
 }));
 
