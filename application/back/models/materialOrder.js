@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     charset: 'utf8',
     colate: 'utf8_general_ci',
+    tableName: 'materialOrders',
   });
 
   return MaterialOrder;

@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     charset: 'utf8',
     colate: 'utf8_general_ci',
+    tableName: 'users',
   });
   User.associate = (db) => {
     db.User.hasMany(db.Photo);
