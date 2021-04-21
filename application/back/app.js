@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(cors({
-  origin: ['http://52.78.123.238'],
+  origin: ['http://forestgreening.shop'],
   credentials: true,
 }));
 
@@ -51,6 +51,11 @@ app.use(session({
   saveUninitialized: false,
   resave: false,
   secret: process.env.SECRET,
+  cookie: {
+    httpOnly: true,
+    secure: false,
+    domain: process.env.NODE_ENV === 'production' && '.forestgreening.shop',
+  },
 }));
 app.use(passport.initialize());
 app.use(passport.session());
