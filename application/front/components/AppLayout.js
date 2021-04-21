@@ -4,9 +4,8 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { BellOutlined, BarsOutlined } from '@ant-design/icons';
-import { IS_READED_CHECK_REQUEST } from '../reducers/material';
-import { IS_READED_UPDATE_REQUEST } from '../reducers/material';
 import Router from 'next/router';
+import { IS_READED_CHECK_REQUEST, IS_READED_UPDATE_REQUEST } from '../reducers/material';
 
 const Header = styled.header`
   margin: 0 auto;
@@ -57,7 +56,7 @@ display: flex;
 const Button = styled.button`
   border: none;
   background-color: inherit;
-`
+`;
 
 const AppLayout = ({ children, title }) => {
   const { me } = useSelector((state) => state.user);
@@ -70,14 +69,14 @@ const AppLayout = ({ children, title }) => {
         dispatch({
           type: IS_READED_CHECK_REQUEST,
         });
-      }, [me && me.id])
+      }, [me && me.id]);
     }
   }
 
   if (!isReaded || isReaded.length < 1) {
-    color = "white"
+    color = "white";
   } else {
-    color = "yellow"
+    color = "yellow";
   }
 
   const goToProcure = useCallback((e) => {
@@ -87,14 +86,13 @@ const AppLayout = ({ children, title }) => {
     Router.push('/openMaterialManager');
   }, []);
 
-  console.log(color, isReaded, typeof (isReaded));
   return (
     <>
       <Header>
         <DivWrapper>
           <HeaderText><Link href="/"><a style={{ color: "white" }}>SSP</a></Link></HeaderText>
           <DivRightWrapper>
-            <Link href="/openMaterialManager"><a><Button onClick={goToProcure}><BellOutlined style={{ fontSize: 25, color: color }} /></Button></a></Link>
+            <Link href="/openMaterialManager"><a><Button onClick={goToProcure}><BellOutlined style={{ fontSize: 25, color }} /></Button></a></Link>
             <Link href="/menu"><a><BarsOutlined style={{ fontSize: 25, color: 'white' }} /></a></Link>
           </DivRightWrapper>
         </DivWrapper>
