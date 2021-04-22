@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(cors({
-  origin: ['http://forestgreening.shop'],
+  origin: ['https://forestgreening.shop'],
   credentials: true,
 }));
 
@@ -53,7 +53,7 @@ app.use(session({
   secret: process.env.SECRET,
   cookie: {
     httpOnly: true,
-    secure: false,
+    secure: true,
     domain: process.env.NODE_ENV === 'production' && '.forestgreening.shop',
   },
 }));

@@ -5,7 +5,7 @@ import photoSaga from './photo';
 import materialSaga from './material';
 
 // axios.defaults.baseURL = 'http://localhost:3065';
-axios.defaults.baseURL = 'http://api.forestgreening.shop';
+axios.defaults.baseURL = 'https://api.forestgreening.shop';
 // ngrok 2개 열어서 모바일 쪽 cors 열어주고 접근하면 가능은 함
 axios.defaults.withCredentials = true;
 
