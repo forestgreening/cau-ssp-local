@@ -97,7 +97,7 @@ const PhotoDetail = () => {
         <RowWrapper><p style={{ fontSize: "17px" }}>해시값</p><RightAreaHash>{photos[id].hash}</RightAreaHash></RowWrapper>
       </TextWrapper>
       <ButtonWrapper>
-        <Link href="http://localhost:8080/#/transactions"><Button>블록정보 확인</Button></Link>
+        <Link href="http://api.forestgreening.shop:8080/#/transactions"><Button>블록정보 확인</Button></Link>
       </ButtonWrapper>
     </AppLayout>
   );
