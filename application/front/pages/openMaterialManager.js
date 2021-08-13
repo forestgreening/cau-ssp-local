@@ -26,7 +26,7 @@ const OpenMaterialManager = () => {
   const project = "비계 조달, 설치";
   return (
     <AppLayout title="자재정보열람(점검기관)">
-      {material[0] ? <OpenMaterialForm result={result || null} date={date || null} field={field || null} project={project || null} /> : <OpenMaterialForm></OpenMaterialForm>}
+      {material[0] ? <OpenMaterialForm result={result || null} date={date || null} field={field || null} project={project || null} /> : <OpenMaterialForm />}
     </AppLayout>
   );
 };

@@ -33,7 +33,7 @@ function* logIn(action) {
     console.error(err);
     yield put({
       type: LOG_IN_FAILURE,
-      error: err,
+      error: err.response.data,
     });
   }
 }

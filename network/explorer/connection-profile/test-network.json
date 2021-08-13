@@ -29,9 +29,11 @@
 		"Org1MSP": {
 			"mspid": "Org1MSP",
 			"adminPrivateKey": {
-				"path": "/tmp/crypto/peerOrganizations/org1.localGoverment.com/users/Admin@org1.localGoverment.com/msp/keystore/594cc48a27b067d7945a6fe2e34c0b4e694b7319a97b9f57c90012bae3ee41a7_sk"
+				"path": "/tmp/crypto/peerOrganizations/org1.localGoverment.com/users/Admin@org1.localGoverment.com/msp/keystore/ea524785359be1e72069fe1a4d29428176ec895fb994790edcb4f29dee0c1fea_sk"
 			},
-			"peers": ["peer0.org1.localGoverment.com"],
+			"peers": [
+				"peer0.org1.localGoverment.com"
+			],
 			"signedCert": {
 				"path": "/tmp/crypto/peerOrganizations/org1.localGoverment.com/users/Admin@org1.localGoverment.com/msp/signcerts/Admin@org1.localGoverment.com-cert.pem"
 			}

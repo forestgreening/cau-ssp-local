@@ -28,7 +28,7 @@ function* loadCapture(action) {
     console.error(err);
     yield put({
       type: CAPTURE_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }
@@ -42,7 +42,7 @@ function* loadCancleCapture() {
     console.error(err);
     yield put({
       type: CANCLE_CAPTURE_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }
@@ -62,7 +62,7 @@ function* upload(action) {
     console.error(err);
     yield put({
       type: UPLOAD_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }
@@ -82,7 +82,7 @@ function* loadPhotos() {
     console.error(err);
     yield put({
       type: LOAD_PHOTOS_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }

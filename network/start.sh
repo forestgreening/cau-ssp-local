@@ -30,3 +30,10 @@ sleep 5
 # Join peer0.org1.localGoverment.com to the channel.
 docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.localGoverment.com/msp" peer0.org1.localGoverment.com peer channel join -b /etc/hyperledger/configtx/ssp.block
 sleep 5
+
+# Join peer0.org2.rentalCompany.com to the channel.
+docker exec -e "CORE_PEER_LOCALMSPID=Org2MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org2.rentalCompany.com/msp" peer0.org2.rentalCompany.com peer channel join -b /etc/hyperledger/configtx/ssp.block
+sleep 5
+
+# Join peer0.org3.constructionCompany.com to the channel.
+docker exec -e "CORE_PEER_LOCALMSPID=Org3MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org3.constructionCompany.com/msp" peer0.org3.constructionCompany.com peer channel join -b /etc/hyperledger/configtx/ssp.block

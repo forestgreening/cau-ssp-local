@@ -22,10 +22,10 @@ sleep 5
 docker exec cli peer chaincode invoke -o orderer.centralGoverment.com:7050 -n ssp -C ssp -c '{"Args":["addPhoto","testcontent","hashedcontent"]}'
 sleep 5
 #chaincode invoke add material
-docker exec cli peer chaincode invoke -o orderer.centralGoverment.com:7050 -n ssp -C ssp -c '{"Args":["addMaterial","testcontent","hashedcontent","testcontent","testcontent","testcontent"]}'
+docker exec cli peer chaincode invoke -o orderer.centralGoverment.com:7050 -n ssp -C ssp -c '{"Args":["addMaterial","testcontent","hashedcontent","testcontent","testcontent","1"]}'
 sleep 5
 #chaincode invoke add material rental
-docker exec cli peer chaincode invoke -o orderer.centralGoverment.com:7050 -n ssp -C ssp -c '{"Args":["addMaterialRental","testcontent","hashedcontent","testcontent","testcontent","testcontent","true"]}'
+docker exec cli peer chaincode invoke -o orderer.centralGoverment.com:7050 -n ssp -C ssp -c '{"Args":["addMaterialRental","testcontent","hashedcontent","testcontent","testcontent","2","true"]}'
 sleep 5
 #chaincode query material
 docker exec cli peer chaincode query -o orderer.centralGoverment.com:7050 -n ssp -C ssp -c '{"Args":["getMaterial","testcontent"]}'

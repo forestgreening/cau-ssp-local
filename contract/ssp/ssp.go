@@ -85,7 +85,8 @@ func (s *SmartContract) addPhoto(APIstub shim.ChaincodeStubInterface, args []str
  func (s *SmartContract) addMaterial(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
  	if len(args) != 5 {
  		return shim.Error("Incorrect number of arguments. Expecting 5")
- 	}
+	 }
+	
  	var data = MaterialData{FileName: args[0], ContractQuantity: args[1], CompanyName: args[2], Quantity: args[3], Date: args[4]}
  	dataAsBytes, _ := json.Marshal(data)
  	APIstub.PutState(args[0], dataAsBytes)
@@ -97,14 +98,33 @@ func (s *SmartContract) addPhoto(APIstub shim.ChaincodeStubInterface, args []str
 	if len(args) != 6 {
 		return shim.Error("Incorrect number of arguments. Expecting 6")
 	}
-	var data = MaterialRentalData{FileName: args[0], ContractQuantity: args[1], CompanyName: args[2], Quantity: args[3], Date: args[4], Match: args[5]}
-	dataAsBytes, _ := json.Marshal(data)
-	APIstub.PutState(args[0], dataAsBytes)
+	
+	var order, _ = APIstub.GetState(args[0])
 
-	return shim.Success(nil)
+	orderData := string(order[:])
+
+	var orderAsData = MaterialData{}
+
+	err := json.Unmarshal([]byte(orderData), &orderAsData)
+
+	if err != nil {
+		fmt.Println("Failed to json.Unmarshal", err)
+	}
+	
+	fmt.Println(orderAsData.Date)
+
+	if (args[4] > orderAsData.Date) {
+		var data = MaterialRentalData{FileName: args[0], ContractQuantity: args[1], CompanyName: args[2], Quantity: args[3], Date: args[4], Match: args[5]}
+		dataAsBytes, _ := json.Marshal(data)
+		APIstub.PutState(args[0], dataAsBytes)
+	
+		return shim.Success(nil)
+	} else {
+		return shim.Error("Failed to PutState")
+	}
 }
 
- func (s *SmartContract) getMaterial(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (s *SmartContract) getMaterial(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")

@@ -106,7 +106,14 @@ router.post('/order', async (req, res, next) => {
 
 router.post('/rental', async (req, res, next) => {
   try {
-
+    const exOrder = await MaterialOrder.findOne({
+      where: {
+        fileName: req.body.fileName,
+      },
+    });
+    if (!exOrder) {
+      return res.status(403).send('발주 된 내용이 없습니다.');
+    }
     const walletPath = path.join(process.cwd(), 'wallet');
     const wallet = new FileSystemWallet(walletPath);
     console.log(`Wallet path: ${walletPath}`);

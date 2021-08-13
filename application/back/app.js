@@ -35,12 +35,17 @@ if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'));
 }
 
-app.use(cors({
-  origin: ['https://forestgreening.shop'],
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: ['https://forestgreening.shop'],
+//   credentials: true,
+// }));
 
-app.options('/', cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}))
+
+// app.options('/', cors());
 
 // app.use(cors());
 

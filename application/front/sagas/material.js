@@ -56,7 +56,7 @@ function* inputRentalMaterial(action) {
     console.error(err);
     yield put({
       type: INPUT_RENTAL_MATERIAL_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }
@@ -76,7 +76,7 @@ function* loadMaterial(action) {
     console.error(err);
     yield put({
       type: LOAD_MATERIAL_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }
@@ -96,7 +96,7 @@ function* isReaded() {
     console.error(err);
     yield put({
       type: IS_READED_CHECK_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }
@@ -116,7 +116,7 @@ function* isReadedUpdate() {
     console.error(err);
     yield put({
       type: IS_READED_UPDATE_FAILURE,
-      data: err.response.data,
+      error: err.response.data,
     });
   }
 }
